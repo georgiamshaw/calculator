@@ -8,7 +8,12 @@
 
 body {
   display: flex;
+}
 
+.calculator {
+  border-color: green;
+  border-style: solid;
+  border-radius: 1rem;
 }
 
 #display, .calculator-key {
