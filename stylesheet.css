@@ -2,12 +2,16 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 1.3rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1.2rem;
 }
 
 body {
   background-color: #A4978E;
   display: flex;
+  height: 100vh;
+  margin: 0;
 }
 
 .calculator {
@@ -16,6 +20,13 @@ body {
   border-radius: 1rem;
   background-color: #525B56;
   box-shadow: 5px 2px 2px #414844;
+  padding: 0.8rem;
+  max-width: 23rem;
+  max-height: 34rem;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 #display, .calculator-key {
@@ -25,34 +36,52 @@ body {
   border-radius: 3rem;
   outline: none;
   border-color: none;
+  position: relative;
 }
 
 #display {
-  width: 24rem;
-  height: 6rem;
+  width: 20rem;
+  height: 5.5rem;
   background-color: #132226;
   border-color: #132226;
   box-shadow: 5px 2px 2px #626664;
+  color: white;
+  font-size: 3rem;
+  text-align: right;
+  font-family: sans-serif;
+}
+
+.calculator-key-container {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .line {
+  display: grid;
+  grid-template-columns: 5.3rem 5.3rem 5.3rem 5.3rem;
+}
 
+#line-5 {
+  grid-template-columns: 10.6rem 5.3rem 5.3rem;
 }
 
 .calculator-key {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   background-color: #98734F;
   border-color: #98734F;
   box-shadow: 5px 2px 2px #BC9F82;
+  position: relative;
 }
 
 .calculator-key:active {
-  border: none;
+  border: solid 4px;
+  border-color: #886747;
 }
 
 #key-0 {
-  width: 11.3rem;
+  width: 9.3rem;
 }
 
 #key-AC, #key-plusMinus, #key-percent {
@@ -61,8 +90,23 @@ body {
   box-shadow: 5px 2px 2px #886747;
 }
 
-#key-divide, #key-multiply, #key-minus, #key-plus, #key-equals {
+#key-AC:active, #key-plusMinus:active, #key-percent:active {
+  border: solid 4px;
+  border-color: #967f68;
+}
+
+.key-operator {
   background-color: #BE9063;
   border-color: #BE9063;
   box-shadow: 5px 2px 2px #886747;
+}
+
+.key-operator:active {
+  border: solid 4px;
+  border-color: #72563b;
+}
+
+.pressed {
+  border: solid 4px;
+  border-color: #72563b;
 }
