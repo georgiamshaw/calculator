@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="toggle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
+
 <body>
   <!-- <label class="toggle">
     <input type="checkbox">
@@ -13,34 +14,36 @@
     </div>
     <div id="calculator-key-container">
       <div class="line" id="line-1">
-        <button class="calculator-key" id="key-AC">AC</button>
+        <button class="calculator-key" id="key-AC" data-action="clear">AC</button>
         <button class="calculator-key" id="key-plusMinus">+/-</button>
         <button class="calculator-key" id="key-percent">%</button>
-        <button class="calculator-key" id="key-divide">÷</button>
+        <button class="calculator-key key-operator" id="key-divide" data-action="divide">÷</button>
       </div>
       <div class="line" id="line-2">
-        <button class="calculator-key">7</button>
-        <button class="calculator-key">8</button>
-        <button class="calculator-key">9</button>
-        <button class="calculator-key" id="key-multiply">x</button>
+        <button class="calculator-key key-num" id="key-seven">7</button>
+        <button class="calculator-key key-num" id="key-eight">8</button>
+        <button class="calculator-key key-num" id="key-nine">9</button>
+        <button class="calculator-key key-operator" id="key-multiply" data-action="multiply">×</button>
       </div>
       <div class="line" id="line=3">
-        <button class="calculator-key">4</button>
-        <button class="calculator-key">5</button>
-        <button class="calculator-key">6</button>
-        <button class="calculator-key" id="key-minus">-</button>
+        <button class="calculator-key key-num" id="key-four">4</button>
+        <button class="calculator-key key-num" id="key-five">5</button>
+        <button class="calculator-key key-num" id="key-six">6</button>
+        <button class="calculator-key key-operator" id="key-minus" data-action="subtract">-</button>
       </div>
       <div class="line" id="line-4">
-        <button class="calculator-key">1</button>
-        <button class="calculator-key">2</button>
-        <button class="calculator-key">3</button>
-        <button class="calculator-key" id="key-plus">+</button>
+        <button class="calculator-key key-num" id="key-one">1</button>
+        <button class="calculator-key key-num" id="key-two">2</button>
+        <button class="calculator-key key-num" id="key-three">3</button>
+        <button class="calculator-key key-operator" id="key-plus" data-action="add">+</button>
       </div>
       <div class="line" id="line-5">
-        <button class="calculator-key" id="key-0">0</button>
-        <button class="calculator-key">.</button>
-        <button class="calculator-key" id="key-equals">=</button>
+        <button class="calculator-key key-num" id="key-0">0</button>
+        <button class="calculator-key" id="key-decimal" data-action="decimal">.</button>
+        <button class="calculator-key key-operator" id="key-equals" data-action="calculate">=</button>
       </div>
     </div>
   </div>
-<body>
+
+  <body>
+    <script src="index.js"></script>
