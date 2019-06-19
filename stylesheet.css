@@ -7,6 +7,12 @@
   font-size: 1.2rem;
 }
 
+body {
+  background-color: #A4978E;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
 
 .calculator {
   border-color: #525B56;
