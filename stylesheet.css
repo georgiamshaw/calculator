@@ -29,7 +29,7 @@ body {
   position: relative;
 }
 
-#display, .calculator-key {
+#calculator-display, .calculator-key {
   padding: 1rem;
   margin: 0.5rem;
   cursor: pointer;
@@ -39,7 +39,7 @@ body {
   position: relative;
 }
 
-#display {
+#calculator-display {
   width: 20rem;
   height: 5.5rem;
   background-color: #132226;
@@ -49,6 +49,7 @@ body {
   font-size: 3rem;
   text-align: right;
   font-family: sans-serif;
+  padding-right: 1.5rem;
 }
 
 .calculator-key-container {

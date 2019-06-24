@@ -1,6 +1,5 @@
-const display = document.querySelector("#display");
+const display = document.querySelector("#calculator-display");
 const calculator = document.querySelector("#calculator-key-container");
-
 
 document.addEventListener("click", e => {
   if (e.target.matches("button")) {
@@ -16,19 +15,34 @@ document.addEventListener("click", e => {
       } else {
         display.textContent = displayedNum + keyContent;
       }
+      calculator.dataset.previousKey = 'number';
     }
     else if (action === "decimal") {
-      display.textContent = displayedNum + '.';
-    } else if (action === "clear") {
-      console.log("clear key!")
-    } else if (action === "calculate") {
+      if (!displayedNum.includes('.')) {
+        display.textContent = displayedNum + '.';
+      } else if (previousKeyType === "operator") {
+        display.textContent = "0."
+      }
+      calculator.dataset.previousKeyType = "decimal";
+    }
+    else if (action === "clear") {
+      calculator.dataset.previousKeyType = 'clear';
+    }
+    else if (action === "calculate") {
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
       const secondValue = displayedNum;
       display.textContent = calculateOperations(firstValue, operator, secondValue);
-    } else if (action === "add" || "subtract" || "multiply" || "divide") {
-      // key.classList.add("pressed");
-      // Array.from(key.parentNode.children).forEach(key => key.classList.remove("pressed"));
+      calculator.dataset.previousKeyType = 'calculate';
+    }
+    else if (action === "add" || "subtract" || "multiply" || "divide") {
+      const firstValue = calculator.dataset.firstValue
+  const operator = calculator.dataset.operator
+  const secondValue = displayedNum
+  if (firstValue && operator) {
+    display.textContent = calculate(firstValue, operator, secondValue)
+  }
+      key.classList.add("pressed");
       calculator.dataset.previousKeyType = "operator";
       calculator.dataset.firstValue = displayedNum;
       calculator.dataset.operator = action;
