@@ -20,12 +20,13 @@ document.addEventListener("click", e => {
     else if (action === "decimal") {
       if (!displayedNum.includes('.')) {
         display.textContent = displayedNum + '.';
-      } else if (previousKeyType === "operator") {
-        console.log("hello");
-        return "0."
+      } if (previousKeyType === "operator") {
+        display.textContent = "0."
       }
       calculator.dataset.previousKeyType = "decimal";
-    } else if (action === "plusMinus") {
+    }
+
+    else if (action === "plusMinus") {
       if (displayedNum > 0) {
         display.textContent = "-" + displayedNum;
       }  else if (displayedNum < 0) {
