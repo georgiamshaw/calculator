@@ -16,44 +16,51 @@ document.addEventListener("click", e => {
         display.textContent = displayedNum + keyContent;
       }
       calculator.dataset.previousKeyType = 'number';
-    }
-    else if (action === "decimal") {
+    } else if (action === "decimal") {
       if (!displayedNum.includes('.')) {
         display.textContent = displayedNum + '.';
-      } if (previousKeyType === "operator") {
+      }
+      if (previousKeyType === "operator") {
         display.textContent = "0."
       }
       calculator.dataset.previousKeyType = "decimal";
-    }
-
-    else if (action === "plusMinus") {
+    } else if (action === "plusMinus") {
       if (displayedNum > 0) {
         display.textContent = "-" + displayedNum;
-      }  else if (displayedNum < 0) {
+      } else if (displayedNum < 0) {
         display.textContent = displayedNum;
       }
 
-    }
-    else if (action === "clear") {
+    } else if (action === "clear") {
       display.textContent = "0";
       calculator.dataset.previousKeyType = 'clear';
-    }
-    else if (action === "calculate") {
-      const firstValue = calculator.dataset.firstValue;
+    } else if (action === "calculate") {
+      let firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
-      const secondValue = displayedNum;
-      display.textContent = calculate(firstValue, operator, secondValue);
-      calculator.dataset.previousKeyType = 'calculate';
+      let secondValue = displayedNum;
+      if (firstValue) {
+        if (previousKeyType === 'calculate') {
+      firstValue = displayedNum
+    secondValue = calculator.dataset.modValue
     }
-    else if (action === "add" || "subtract" || "multiply" || "divide") {
+        display.textContent = calculate(firstValue, operator, secondValue)
+      }
+      calculator.dataset.modValue = secondValue
+      calculator.dataset.previousKeyType = 'calculate'
+    } else if (action === "add" || "subtract" || "multiply" || "divide") {
       const firstValue = calculator.dataset.firstValue
-  const operator = calculator.dataset.operator
-  const secondValue = displayedNum
-  key.classList.add("pressed");
-  calculator.dataset.previousKeyType = "operator";
-  calculator.dataset.firstValue = displayedNum;
-  calculator.dataset.operator = action;
-
+      const operator = calculator.dataset.operator
+      const secondValue = displayedNum
+      if (firstValue && operator && previousKeyType !== "operator") {
+        const calcValue = calculate(firstValue, operator, secondValue)
+        display.textContent = calcValue
+        calculator.dataset.firstValue = calcValue
+      } else {
+        calculator.dataset.firstValue = displayedNum
+      }
+      key.classList.add("pressed");
+      calculator.dataset.previousKeyType = "operator";
+      calculator.dataset.operator = action;
     }
   }
 })
