@@ -15,42 +15,49 @@ document.addEventListener("click", e => {
       } else {
         display.textContent = displayedNum + keyContent;
       }
-      calculator.dataset.previousKey = 'number';
+      calculator.dataset.previousKeyType = 'number';
     }
     else if (action === "decimal") {
       if (!displayedNum.includes('.')) {
         display.textContent = displayedNum + '.';
       } else if (previousKeyType === "operator") {
-        display.textContent = "0."
+        console.log("hello");
+        return "0."
       }
       calculator.dataset.previousKeyType = "decimal";
+    } else if (action === "plusMinus") {
+      if (displayedNum > 0) {
+        display.textContent = "-" + displayedNum;
+      }  else if (displayedNum < 0) {
+        display.textContent = displayedNum;
+      }
+
     }
     else if (action === "clear") {
+      display.textContent = "0";
       calculator.dataset.previousKeyType = 'clear';
     }
     else if (action === "calculate") {
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
       const secondValue = displayedNum;
-      display.textContent = calculateOperations(firstValue, operator, secondValue);
+      display.textContent = calculate(firstValue, operator, secondValue);
       calculator.dataset.previousKeyType = 'calculate';
     }
     else if (action === "add" || "subtract" || "multiply" || "divide") {
       const firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   const secondValue = displayedNum
-  if (firstValue && operator) {
-    display.textContent = calculate(firstValue, operator, secondValue)
-  }
-      key.classList.add("pressed");
-      calculator.dataset.previousKeyType = "operator";
-      calculator.dataset.firstValue = displayedNum;
-      calculator.dataset.operator = action;
+  key.classList.add("pressed");
+  calculator.dataset.previousKeyType = "operator";
+  calculator.dataset.firstValue = displayedNum;
+  calculator.dataset.operator = action;
+
     }
   }
 })
 
-const calculateOperations = (n1, operator, n2) => {
+const calculate = (n1, operator, n2) => {
   let result = "";
 
   if (operator === "add") {
