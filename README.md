@@ -1,2 +1,8 @@
-# calculator
-A calculator made for F&amp;C precourse work
+# Make a Calculator
+
+## Founders and Coders
+
+### What my calculator can do:
+
+
+### What I need to add/work on:
