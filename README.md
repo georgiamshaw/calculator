@@ -2,6 +2,8 @@
 
 ## __Founders and Coders__
 
+You can find a link to my calculator [here](https://georgiamshaw.github.io/calculator/)
+
 ### What my calculator can do:
 * Addition, subtraction, multiplication and division
 * Supports decimal numbers
